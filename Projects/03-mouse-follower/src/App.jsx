@@ -17,11 +17,13 @@ const FollowMouse = () => {
       window.addEventListener("pointermove", handleMove);
     }
     return () => {
+      console.log('cleanup')
       window.removeEventListener("pointermove", handleMove);
     }; // limpiar subcripción al efecto para reiniciar
   }, [enabled]);
 
-  return (<>
+  return (
+  <>
     <div
       style={{
         position: "absolute",
@@ -42,7 +44,8 @@ const FollowMouse = () => {
     <button onClick={() => setEnabled(!enabled)}>
       {enabled ? "Desactivar" : "Activar"} seguir puntero
     </button>
-  </>)
+  </>
+  )
   
 };
 
